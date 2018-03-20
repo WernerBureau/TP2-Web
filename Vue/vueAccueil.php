@@ -18,7 +18,8 @@
             <td><?= htmlspecialchars($produit['produit_prix']) ?>$</td>
             <td><?= htmlspecialchars($produit['type_produit_description']) ?></td>
             <td><?= htmlspecialchars($produit['produit_autre_details']) ?></td>
-            <td><a href="produit_modifier.php?id='. $donnees['produit_id'] .'">[Modifier]</a> <a href="produit_supprimer.php?id='. $donnees['produit_id'] .'">[Supprimer]</a></td>
+            <td><a href="<?= "index.php?action=modifProduit&produit_id=" . $produit['produit_id']?>">[Modifier]</a>
+                <a href="<?= "index.php?action=supprProduit&produit_id=" . $produit['produit_id']?>">[Supprimer]</a></td>
         </tr>
     <?php endforeach; ?>
     

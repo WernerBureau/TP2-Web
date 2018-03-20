@@ -19,11 +19,11 @@ function getProduits() {
 // Ajouter des nouveaux produits
 function setProduit($produit) {
     $bdd = getBdd();
-    $querytypecode = $bdd->query("SELECT type_produit_code FROM Ref_Produit_Type WHERE type_produit_description = 'Chandail'");
-    $typecode = $querytypecode->fetch(PDO::FETCH_ASSOC);
-    echo $typecode;
     $result = $bdd->prepare('INSERT INTO Produit (produit_id, produit_type_code, produit_nom, produit_prix, produit_autre_details) VALUES(?, ?, ?, ?, ?)');
-    $result->execute(array($produit[produit_id], $typecode, $produit[produit_nom], $produit[produit_prix], $produit[produit_autre_details]));
+    $query = $bdd->query("SELECT type_produit_code FROM Ref_Produit_Type WHERE type_produit_description = type_produit_description");
+    $code_row = $query->fetch(PDO::FETCH_ASSOC);
+    $code = $code_row['type_produit_code'];
+    $result->execute(array($produit[produit_id], $code, $produit[produit_nom], $produit[produit_prix], $produit[produit_autre_details]));
     return $result;
 }
 

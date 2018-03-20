@@ -1,9 +1,9 @@
-<?php $titre = "TP2 - Ajouter un produit"?>
+<?php $titre = "TP2 - Ajouter un type de produit"?>
 
 <?php ob_start(); ?>
 
-<form action="index.php?action=ajouter" method="post">
-    <h3>Ajouter un produit</h3>
+<form action="index.php?action=ajouterTypeProduit" method="post">
+    <h3>Ajouter un type de produit</h3>
     <label for="produit_nom">Nom du produit: </label> <input type="text" name="produit_nom" id="produit_nom" />
     <label for="type_produit_description">Type de produit:</label> <input type="text" name="type_produit_description" id="auto" />
     <label for="produit_prix">Prix du produit: </label> <input type="text" name="produit_prix" id="produit_prix" />
