@@ -20,10 +20,22 @@ function modifProduit($produit_id, $erreur) {
     require 'Vue/vueModifier.php';
 }
 
+function enrModifProduit($id) {
+    $produit = getProduit($id);
+    modifierProduit($produit);
+    header('Location: index.php');
+}
+
 // Supprimer un produit
 function supprProduit($produit_id, $erreur) {
     $produit = getProduit($produit_id);
     require 'Vue/vueSupprimer.php';
+}
+
+function enrSupprProduit($id) {
+    $produit = getProduit($id);
+    deleteProduit($id);
+    header('Location: index.php');
 }
 
 function nouveauProduit() {

@@ -20,7 +20,7 @@ try {
         }
 
         // Modifier un produit
-        if ($_GET['action'] == 'modifProduit') {
+        else if ($_GET['action'] == 'modifProduit') {
             if (isset($_GET['produit_id'])) {
                 // intval renvoie la valeur numérique du paramètre ou 0 en cas d'échec
                 $produit_id = intval($_GET['produit_id']);
@@ -32,8 +32,22 @@ try {
             } else
                 throw new Exception("Aucun identifiant de produit");
         }
+
+        //Enregistrer la suppression du produit
+        else if ($_GET['action'] == 'enrModifProduit') {
+        if (isset($_GET['id'])) {
+            // intval renvoie la valeur numérique du paramètre ou 0 en cas d'échec
+            $id = intval($_GET['id']);
+            if ($id != 0) {
+                enrModifProduit($id);
+            } else
+                throw new Exception("Identifiant de produit incorrect");
+        } else
+            throw new Exception("Aucun identifiant de produit");    
+        }
+
         // Supprimer un produit
-        if ($_GET['action'] == 'supprProduit') {
+        else if ($_GET['action'] == 'supprProduit') {
             if (isset($_GET['produit_id'])) {
                 // intval renvoie la valeur numérique du paramètre ou 0 en cas d'échec
                 $produit_id = intval($_GET['produit_id']);
@@ -44,24 +58,42 @@ try {
                     throw new Exception("Identifiant de produit incorrect");
             } else
                 throw new Exception("Aucun identifiant de produit");
+        }
+
+        // Enregistrer la suppression un produit
+        else if ($_GET['action'] == 'enrSupprProduit') {
+            if (isset($_POST['produit_id'])) {
+                // intval renvoie la valeur numérique du paramètre ou 0 en cas d'échec
+                $id = intval($_POST['produit_id']);
+                if ($id != 0) {
+                    $erreur = isset($_POST['erreur']) ? $_POST['erreur'] : '';
+                    enrSupprProduit($id, $erreur);
+                } else
+                    throw new Exception("Identifiant de produit incorrect");
+            } else
+                throw new Exception("Aucun identifiant de produit");
+        }
+        
+
 
         // Ajouter un produit
-        } else if ($_GET['action'] == 'nouveauProduit') {
+        else if ($_GET['action'] == 'nouveauProduit') {
             nouveauProduit();
+        }
         // Ajouter un type de produit
-        } else if ($_GET['action'] == 'nouveauTypeProduit') {
+        else if ($_GET['action'] == 'nouveauTypeProduit') {
             nouveauTypeProduit();
-        
+        }
         // Enregistrer le produit
-        } else if ($_GET['action'] == 'ajouter') {
+        else if ($_GET['action'] == 'ajouter') {
             $produit = $_POST;
             ajouter($produit);
-  
+        }
         // Cherche les types pour l'autocomplete
-        } else if ($_GET['action'] == 'quelsTypes') {
+        else if ($_GET['action'] == 'quelsTypes') {
             quelsTypes($_GET['term']);
-
-        } else {
+        }
+        else {
             // Fin des actions
             throw new Exception("Action non valide");
         }
