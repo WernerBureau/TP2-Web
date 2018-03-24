@@ -115,6 +115,12 @@ try {
         else if ($_GET['action'] == 'quelsTypes') {
             quelsTypes($_GET['term']);
         }
+
+        // Afficher la page À Propos
+        else if ($_GET['action'] == 'apropos') {
+            apropos();
+        }
+
         else {
             // Fin des actions
             throw new Exception("Action non valide");

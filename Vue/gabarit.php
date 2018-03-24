@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="one-third column">
-                    <br/><h5><a href="a_propos.html">À propos</a></h5>
+                    <br/><h5><a href="index.php?action=apropos">À propos</a></h5>
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
         </div>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/autocompleteType.js"></script>
+        <script type="text/javascript" src="contenu/js/autocompleteType.js"></script>
     </body>
 </html>
 

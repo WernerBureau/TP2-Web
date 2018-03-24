@@ -27,8 +27,8 @@ function setProduit($produit) {
 
     $query->closeCursor();
 
-    $result = $bdd->prepare('INSERT INTO Produit (produit_id, produit_type_code, produit_nom, produit_prix, produit_autre_details) VALUES(?, ?, ?, ?, ?)');
-    $result->execute(array($produit[produit_id], $code, $produit[produit_nom], $produit[produit_prix], $produit[produit_autre_details]));
+    $result = $bdd->prepare('INSERT INTO Produit (produit_id, produit_type_code, produit_nom, produit_prix, produit_autre_details, produit_contact) VALUES(?, ?, ?, ?, ?, ?)');
+    $result->execute(array($produit[produit_id], $code, $produit[produit_nom], $produit[produit_prix], $produit[produit_autre_details], $produit[produit_contact]));
  
 
     return $result;
@@ -67,8 +67,8 @@ function modifierProduit($produit) {
 
     $query->closeCursor();
 
-    $req = $bdd->prepare('UPDATE Produit SET produit_id = ?, produit_type_code = ?, produit_nom = ?, produit_prix = ?, produit_autre_details = ? WHERE produit_id = ?');
-    $req->execute(array($_POST[produit_id], $code, $_POST[produit_nom], $_POST[produit_prix], $_POST[produit_autre_details] ,$_POST[produit_id]));
+    $req = $bdd->prepare('UPDATE Produit SET produit_id = ?, produit_type_code = ?, produit_nom = ?, produit_prix = ?, produit_autre_details = ? , produit_contact = ? WHERE produit_id = ?');
+    $req->execute(array($_POST[produit_id], $code, $_POST[produit_nom], $_POST[produit_prix], $_POST[produit_autre_details], $_POST[produit_contact] ,$_POST[produit_id]));
     return $req;
 }
 
