@@ -2,8 +2,8 @@
 -- version 4.4.15.9
 -- https://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 13, 2018 at 04:46 PM
+-- Host: localhost
+-- Generation Time: Mar 24, 2018 at 06:06 PM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.31
 
@@ -139,18 +139,20 @@ CREATE TABLE IF NOT EXISTS `Produit` (
   `produit_type_code` int(11) NOT NULL,
   `produit_nom` varchar(255) NOT NULL,
   `produit_prix` decimal(10,2) NOT NULL,
-  `produit_autre_details` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+  `produit_autre_details` varchar(255) NOT NULL,
+  `produit_contact` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Produit`
 --
 
-INSERT INTO `Produit` (`produit_id`, `produit_type_code`, `produit_nom`, `produit_prix`, `produit_autre_details`) VALUES
-(1, 3, 'T-shirt en coton', '19.99', 'T-shirt en jersey de coton de première qualité.'),
-(2, 4, 'Jeans bleu', '21.98', 'Jeans bleu régulier'),
-(13, 4, 'Jeans noir', '19.99', 'Jeans noir sont vraiment beaux'),
-(25, 4, 'Jeans jaune', '19.18', 'Jeans jaunes vraiment moins beaux');
+INSERT INTO `Produit` (`produit_id`, `produit_type_code`, `produit_nom`, `produit_prix`, `produit_autre_details`, `produit_contact`) VALUES
+(1, 3, 'T-shirt en coton', '19.99', 'T-shirt en jersey de coton de première qualité.', NULL),
+(2, 4, 'Jeans bleu', '21.98', 'Jeans bleu régulier', NULL),
+(13, 4, 'Jeans noir', '19.99', 'Jeans noir sont vraiment beaux', NULL),
+(25, 6, 'Jeans jaune', '19.18', 'Entrez une description du produit ici', NULL),
+(37, 4, 'Pantalon test', '12.00', 'Entrez une description du produit ici', NULL);
 
 -- --------------------------------------------------------
 
@@ -219,7 +221,7 @@ INSERT INTO `Ref_Methode_Paiement` (`methode_paiement_code`, `methode_paiement_d
 CREATE TABLE IF NOT EXISTS `Ref_Produit_Type` (
   `type_produit_code` int(11) NOT NULL,
   `type_produit_description` varchar(255) NOT NULL COMMENT '-eg Vetements, Bijoux'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Ref_Produit_Type`
@@ -227,7 +229,10 @@ CREATE TABLE IF NOT EXISTS `Ref_Produit_Type` (
 
 INSERT INTO `Ref_Produit_Type` (`type_produit_code`, `type_produit_description`) VALUES
 (3, 'Chandail'),
-(4, 'Pantalon');
+(4, 'Pantalon'),
+(5, 'Bijoux'),
+(6, 'Accessoires'),
+(7, 'Pantalon mous');
 
 --
 -- Indexes for dumped tables
@@ -330,7 +335,7 @@ ALTER TABLE `Commande_Item`
 -- AUTO_INCREMENT for table `Produit`
 --
 ALTER TABLE `Produit`
-  MODIFY `produit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
+  MODIFY `produit_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `Ref_Adresse_Type`
 --
@@ -350,7 +355,7 @@ ALTER TABLE `Ref_Methode_Paiement`
 -- AUTO_INCREMENT for table `Ref_Produit_Type`
 --
 ALTER TABLE `Ref_Produit_Type`
-  MODIFY `type_produit_code` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `type_produit_code` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --

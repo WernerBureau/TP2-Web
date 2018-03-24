@@ -12,7 +12,7 @@
     <div class="row">
         <div class="two-thirds column">
             <strong>Diagramme de la base de donnée actuelle utilisée par mon application:</strong>
-            <img src="contenu/img/modele1.gif" alt="Diagramme de la base de donnée actuelle utilisée par mon application" width="800" height="500">
+            <img src="contenu/img/modele1.gif" alt="Diagramme de la base de donnée actuelle utilisée par mon application" width="1200" height="500">
         </div>
     </div>
 
