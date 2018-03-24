@@ -48,8 +48,13 @@ function nouveauTypeProduit() {
 
 // Enregistre le nouveau produit et retourne à l'accueil
 function ajouter($produit) {
-    setProduit($produit);
-    header('Location: index.php');
+    $validation_courriel = filter_var($produit['produit_contact'], FILTER_VALIDATE_EMAIL);
+    if ($validation_courriel) {
+        setProduit($produit);
+        header('Location: index.php');
+    } else {
+        header('Location: index.php?action=nouveauProduit&erreur=courriel');
+    }
 }
 
 // Enregistre le nouveau type de produit et retourne à l'accueil

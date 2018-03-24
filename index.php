@@ -111,7 +111,7 @@ try {
             ajouterType($type);
         }
 
-        // Cherche les types pour l'autocomplete
+        // Cherche les types pour l'autocompletion
         else if ($_GET['action'] == 'quelsTypes') {
             quelsTypes($_GET['term']);
         }

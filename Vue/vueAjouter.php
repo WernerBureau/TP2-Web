@@ -9,7 +9,8 @@
     <label for="produit_prix">Prix du produit: </label> <input type="text" name="produit_prix" id="produit_prix" />
     <label for="produit_autre_details">Description du produit: </label> <textarea type="text" name="produit_autre_details" id="produit_autre_details" >Entrez une description du produit ici</textarea>
     <label for="produit_contact">Courriel contact du produit: </label> <input type="text" name="produit_contact" id="produit_contact" />
-    <input type="hidden" name="produit_id" value="" /><br />
+    <?= ($erreur == 'courriel') ? '<span style="color : red;">Veuillez entrer un courriel valide.</span>' : '' ?> <br />
+    <input type="hidden" name="produit_id" value="" />
     <input type="submit" value="Envoyer" />
 </form>
 
