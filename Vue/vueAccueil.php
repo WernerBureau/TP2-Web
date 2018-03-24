@@ -25,7 +25,7 @@
     
     <tr><td><a href="index.php?action=nouveauProduit"><strong>Ajouter un produit</strong></a></td>
     <td></td>
-    <td><a href="index.php?action=nouveauProduit"><strong>Nouveau type</strong></a></td>
+    <td><a href="index.php?action=nouveauTypeProduit"><strong>Nouveau type</strong></a></td>
     </tr>
 </table>
 <?php $contenu = ob_get_clean(); ?>

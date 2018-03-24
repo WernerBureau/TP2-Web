@@ -17,6 +17,19 @@ try {
                     throw new Exception("Identifiant de produit incorrect");
             } else
                 throw new Exception("Aucun identifiant de produit");
+        }        
+        // Afficher un type
+        else if ($_GET['action'] == 'type') {
+            if (isset($_GET['type_produit_code'])) {
+                // intval renvoie la valeur numérique du paramètre ou 0 en cas d'échec
+                $type_produit_code = intval($_GET['type_produit_code']);
+                if ($type_produit_code != 0) {
+                    $erreur = isset($_GET['erreur']) ? $_GET['erreur'] : '';
+                    produit($type_produit_code, $erreur);
+                } else
+                    throw new Exception("Identifiant de produit incorrect");
+            } else
+                throw new Exception("Aucun identifiant de produit");
         }
 
         // Modifier un produit
@@ -33,7 +46,7 @@ try {
                 throw new Exception("Aucun identifiant de produit");
         }
 
-        //Enregistrer la suppression du produit
+        //Enregistrer la modification du produit
         else if ($_GET['action'] == 'enrModifProduit') {
         if (isset($_GET['id'])) {
             // intval renvoie la valeur numérique du paramètre ou 0 en cas d'échec
@@ -80,15 +93,24 @@ try {
         else if ($_GET['action'] == 'nouveauProduit') {
             nouveauProduit();
         }
+
         // Ajouter un type de produit
         else if ($_GET['action'] == 'nouveauTypeProduit') {
             nouveauTypeProduit();
         }
+
         // Enregistrer le produit
         else if ($_GET['action'] == 'ajouter') {
             $produit = $_POST;
             ajouter($produit);
         }
+
+        // Enregistrer le type
+        else if ($_GET['action'] == 'ajouterType') {
+            $type = $_POST;
+            ajouterType($type);
+        }
+
         // Cherche les types pour l'autocomplete
         else if ($_GET['action'] == 'quelsTypes') {
             quelsTypes($_GET['term']);

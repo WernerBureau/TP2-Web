@@ -34,6 +34,17 @@ function setProduit($produit) {
     return $result;
 }
 
+// Ajouter des nouveaux types
+function setTypeProduit($type) {
+    
+    $bdd = getBdd();
+
+    $result = $bdd->prepare('INSERT INTO Ref_Produit_Type (type_produit_code, type_produit_description) VALUES(?, ?)');
+    $result->execute(array($type[type_produit_code], $type[type_produit_description]));
+
+    return $result;
+}
+
 // Renvoie les informations sur un produit
 function getProduit($produit_id) {
     $bdd = getBdd();

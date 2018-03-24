@@ -53,8 +53,8 @@ function ajouter($produit) {
 }
 
 // Enregistre le nouveau type de produit et retourne à l'accueil
-function ajouterTypeProduit($typeProduit) {
-    setTypeProduit($typeProduit);
+function ajouterType($type) {
+    setTypeProduit($type);
     header('Location: index.php');
 }
 
